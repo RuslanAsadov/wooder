@@ -15,7 +15,7 @@ body
 	position: relative
 	line-height: 1.65
 	font-family: $default-font
-	overflow-x: hidden
+	overflow-x: hidden !important
 	color: $text
 	input, textarea
 		border: #666 1px solid
@@ -38,6 +38,906 @@ body
 b, strong
 	font-weight: bold
 
+.fp-tableCell
+	height: 100% !important
+
+//preloader
+
+.loader-cnt
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	background-color: darken($accent, 20%)
+	z-index: 100
+	display: flex
+	align-items: center
+	justify-content: center
+
+.sk-folding-cube
+	width: $spinkit-size
+	height: $spinkit-size
+	position: relative
+	margin: auto
+	transform: rotateZ(45deg)
+
+	.sk-cube
+		float: left
+		width: 50%
+		height: 50%
+		position: relative
+		transform: scale(1.1)
+
+	.sk-cube:before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background-color: $spinkit-spinner-color
+		animation: sk-folding-cube-angle $animationPreloaderDuration infinite linear both
+		transform-origin: 100% 100%
+
+	// Rotation / angle
+	@for $i from 2 through $cubeCount
+		.sk-cube-#{$i}
+			transform: scale(1.1) rotateZ((90deg * ($i - 1)))
+
+
+	@for $i from 2 through $cubeCount
+		.sk-cube-#{$i}:before
+			animation-delay: ($delayRange / $cubeCount * ($i - 1))
+
+@keyframes sk-folding-cube-angle
+	0%, 10%
+		transform: perspective(140px) rotateX(-180deg)
+		opacity: 0
+	25%, 75%
+		transform: perspective(140px) rotateX(0deg)
+		opacity: 1
+	90%, 100%
+		transform: perspective(140px) rotateY(180deg)
+		opacity: 0
+
+
+//end preloader
+
+#fp-nav
+	display: none
+
+
+.header-site
+	height: 100vh
+	position: relative
+	&:after
+		content: ''
+		display: block
+		height: 70px
+		width: 5px
+		background-color: $accent
+		position: absolute
+		bottom: 0
+		right: 20%
+		transform: translate(0, 100%)
+
+.background-twoblocks
+	display: flex
+	height: 100%
+	width: 100%
+	position: absolute
+	z-index: -1
+
+.background-two
+	width: 50%
+	position: relative
+	overflow: hidden
+
+.background-left
+	height: 100%
+
+.background-right
+	height: 105%
+
+.background-overlay
+	background-color: rgba(0, 0, 0, .9)
+	height: 100%
+	width: 100%
+
+.background-two__sym-right, .background-two__phrase-center, .background-two__sym-left
+	position: absolute
+	opacity: 0.5
+	color: $accent
+	text-transform: uppercase
+	text-align: center
+	font-weight: bold
+
+.background-two__phrase-center
+	top: 50%
+	left: 45%
+	transform: rotate(90deg)
+	letter-spacing: 2px
+	max-width: 250px
+
+.background-two__sym-right
+	right: -85px
+	top: 50%
+	font-size: 200px
+	transform: translate(0, -50%)
+	opacity: 0.2
+	line-height: 1
+
+.background-two__sym-left
+	left: 50%
+	bottom: -120px
+	font-size: 200px
+	transform: translate(-50%, 0)
+	opacity: 0.2
+	line-height: 1
+
+.background-two__one
+	line-height: 1
+	position: absolute
+	transform: rotate(90deg)
+	font-size: 50px
+	color: $accent
+	top: 50%
+	left: 40%
+	font-weight: bold
+	letter-spacing: 2px
+	&:before
+		display: block
+		content: ''
+		background-color: $accent
+		height: 5px
+		width: 50px
+		position: absolute
+		top: 50%
+		transform: translate(0, -50%)
+		left: -60px
+
+.main-wrapper
+	height: 100vh
+	min-height: 600px
+	display: flex
+	flex-direction: column
+	position: relative
+
+.logo
+	font-size: 36px
+	font-family: ProximaNova, sans-serif
+	font-weight: bold
+	color: #fff !important
+	text-transform: uppercase
+	line-height: 1
+	position: relative
+	letter-spacing: 7px
+	text-decoration: none
+	&:hover
+		text-decoration: none
+		color: #fff
+	&:before
+		content: ''
+		display: block
+		height: 4px
+		width: 60px
+		background: $accent
+		position: absolute
+		top: 50%
+		left: 41px
+		transform: translate(0, -50%)
+		border-radius: 4px
+
+.top-line
+	display: flex
+	justify-content: center
+	align-items: center
+	height: 100px
+
+.my-hamburger
+	display: none
+	position: absolute
+	left: 0
+	top: 55px
+	transform: translate(0, -50%)
+	cursor: pointer
+
+.hamburger-inner, .hamburger-inner:after, .hamburger-inner:before, .hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner:after, .hamburger.is-active .hamburger-inner:before
+	background-color: #fff
+
+.hamburger.is-active:hover, .hamburger:hover
+	opacity: 1
+
+.menu__list
+	list-style-type: none
+	display: flex
+	margin: 0
+	padding: 0
+
+.mm-panels>.mm-panel>.mm-listview:first-child, .mm-panels>.mm-panel>.mm-navbar+.mm-listview
+	display: flex
+	flex-direction: column
+
+.mm-listitem__text
+	padding: 10px 50px !important
+
+.mm-listitem::after
+	left: 0
+
+.top-line__items
+	color: $darkwhite
+	transition: .25s ease
+	text-transform: uppercase
+	font-weight: bold
+	padding: 0 50px
+	font-size: 15px
+	&:hover
+		color: #ffffff
+
+.information
+	display: block
+	text-transform: uppercase
+	height: 25px
+	width: 25px
+	padding: 10px
+	border: 1px solid $darkwhite
+	border-radius: 50%
+	display: flex
+	align-items: center
+	justify-content: center
+	font-size: 16px
+	transition: .25s ease
+	text-transform: lowercase
+	color: $darkwhite
+	margin: 0 10px
+	&:hover
+		text-decoration: none
+		color: #fff
+		border-color: #fff
+
+.setlang
+	margin: 0 10px
+	text-transform: uppercase
+	font-size: ProximaNova, sans-serif
+	font-weight: bold
+	position: relative
+	color: $darkwhite
+
+.setlang__default
+	cursor: pointer
+	line-height: 1
+	text-transform: uppercase
+	background: transparent
+	border: none
+	color: $darkwhite
+	font-weight: bold
+	padding: 3px 15px
+	font-size: 20px
+	transition: .25s ease
+	position: relative
+	&:after
+		content: ''
+		display: block
+		height: 5px
+		width: 10px
+		background-color: $accent
+		clip-path: polygon(100% 0, 50% 100%, 0 0)
+		position: absolute
+		top: 11px
+		right: 2px
+		transition: .25s ease
+	&:hover
+		color: #fff
+	&.lang-click
+		&:after
+			transform: rotate(180deg)
+
+.mm-wrapper_opened #fp-nav
+	display: none
+
+.top-line_right
+	position: absolute
+	right: 0
+	top: 35px
+	display: flex
+
+.setlang__languages
+	list-style-type: none
+	margin: 0
+	padding: 0
+	display: none
+	position: absolute
+	left: 50%
+	transform: translate(-50%, 0)
+	background-color: #000
+	transition: .25s ease
+	width: 50px
+	text-align: center
+	&.setting__languages-active
+		display: block
+
+.setlang__link
+	color: $darkwhite
+	font-size: 20px
+	transition: .25s ease
+
+.setlang__link:hover
+	color: #fff
+
+.header-composition
+	flex: 1
+	display: flex
+	align-items: center
+	justify-content: center
+	flex-direction: column
+
+.header-composition_inner
+	display: flex
+	flex-direction: column
+	align-items: flex-start
+
+.header-composition_title
+	text-align: center
+	font-size: 100px
+	font-weight: bold
+	color: $accent
+	text-transform: uppercase
+	letter-spacing: 10px
+	line-height: 1
+	margin-bottom: 30px
+	max-width: 500px
+
+.btn-transparent
+	background: transparent
+	border: 2px solid #fff
+	color: #fff
+	text-transform: uppercase
+	font-weight: bold
+	letter-spacing: 1.5px
+	font-size: 18px
+	padding: 10px 60px
+	cursor: pointer
+	transition: .25s ease
+	display: flex
+	align-items: center
+	justify-content: center
+	&:hover, &:focus
+		background: $accent
+
+.btn-transparent_icon
+	height: 25px
+	width: auto
+
+.btn-transparent_icon--left
+	margin-right: 10px
+
+@keyframes nudgeMouse
+	0%
+		transform: translateY(0)
+	20%
+		transform: translateY($posMouse)
+	30%
+		transform: translateY(0)
+	50%
+		transform: translateY($posMouse)
+	60%
+		transform: translateY(0)
+	80%
+		transform: translateY($posMouse)
+	90%
+		transform: translateY(0)
+
+
+@keyframes colorText
+	21%
+		color: $colorOutlineFade
+	30%
+		color: $colorOutline
+	51%
+		color: $colorOutlineFade
+	60%
+		color: $colorOutline
+	81%
+		color: $colorOutlineFade
+	90%
+		color: $colorOutline
+
+@keyframes colorSlide
+	0%
+		background-position: 0% 100%
+	20%
+		background-position: 0% 0%
+	21%
+		background-color: $colorOutlineFade
+	29.99% 
+		background-color: $colorOutline
+		background-position: 0% 0%
+	30% 
+		background-color: $colorOutlineFade
+		background-position: 0% 100%
+	50%
+		background-position: 0% 0%
+	51%
+		background-color: $colorOutlineFade
+	59% 
+		background-color: $colorOutline
+		background-position: 0% 0%
+	60% 
+		background-color: $colorOutlineFade
+		background-position: 0% 100%
+	80%
+		background-position: 0% 0%
+	81%
+		background-color: $colorOutlineFade
+	90%, 100%
+		background-color: $colorOutline
+
+@keyframes trackBallSlide
+	0%
+		opacity: 1
+		transform: scale(1) translateY(-$posTrackball)
+	6% 
+		opacity: 1
+		transform: scale(0.9) translateY($posTrackball/4)
+	14%
+		opacity: 0
+		transform: scale($shrinkTrackball) translateY($posTrackball*2)
+	15%, 19%
+		opacity: 0
+		transform: scale($shrinkTrackball) translateY(-$posTrackball)
+	28%, 29.99%
+		opacity: 1
+		transform: scale(1)  translateY(-$posTrackball)
+	30%
+		opacity: 1
+		transform: scale(1) translateY(-$posTrackball)
+	36% 
+		opacity: 1
+		transform: scale(0.9) translateY($posTrackball/4)
+	44%
+		opacity: 0
+		transform: scale($shrinkTrackball) translateY($posTrackball*2)
+	45%, 49%
+		opacity: 0
+		transform: scale($shrinkTrackball) translateY(-$posTrackball)
+	58%, 59.99%
+		opacity: 1
+		transform: scale(1) translateY(-$posTrackball)
+	60%
+		opacity: 1
+		transform: scale(1) translateY(-$posTrackball)
+	66% 
+		opacity: 1
+		transform: scale(0.9) translateY($posTrackball/4)
+	74%
+		opacity: 0
+		transform: scale($shrinkTrackball) translateY($posTrackball*2)
+	75%, 79%
+		opacity: 0
+		transform: scale($shrinkTrackball) translateY(-$posTrackball)
+	88%, 100%
+		opacity: 1
+		transform: scale(1) translateY(-$posTrackball)
+
+
+.mouse-scroll
+	display: flex
+	flex-direction: column
+	align-items: center
+	margin-top: 20px
+	margin-left: -20px
+
+.mouse-scroll_mouse
+	background: $colorOutlineFade linear-gradient(transparent 0%, transparent 50%, $colorOutline 50%, $colorOutline 100%)
+	position: relative
+	width: $widthMouse
+	height: $heightMouse
+	border-radius: 100px
+	background-size: 100% 200%
+	animation: colorSlide $animDuration linear infinite, nudgeMouse $animDuration ease-out infinite
+	&:before,
+	&:after
+		content: ""
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		margin: auto
+	&:before
+		width: $widthMouse - $borderMouse
+		height: $heightMouse - $borderMouse
+		background-color: $colorBg
+		border-radius: 100px
+	&:after
+		background-color: $colorOutline
+		width: $sizeTrackball
+		height: $sizeTrackball
+		border-radius: 100%
+		animation: trackBallSlide $animDuration linear infinite
+
+.mouse-scroll_text
+	margin-top: 50px
+	font-weight: bold
+	letter-spacing: 2px
+	text-indent: 10px
+	transform: rotate(90deg)
+	color: $colorOutline
+	animation: colorText $animDuration ease-out infinite
+
+.arrow
+	position: relative
+	width: 2px
+	height: 50px
+	top: 30px
+	background-color: $colorOutline
+	animation: colorSlide $animDuration linear infinite
+	&:after
+		content: ''
+		position: absolute
+		bottom: 0
+		right: 4px
+		width: 2px
+		height: 10px
+		transform: rotate(-45deg)
+		background-color: $colorOutline
+		animation: colorSlide $animDuration linear infinite
+	&:before
+		content: ''
+		position: absolute
+		bottom: 0
+		left: 4px
+		width: 2px
+		height: 10px
+		transform: rotate(45deg)
+		background-color: $colorOutline
+		animation: colorSlide $animDuration linear infinite
+
+.btn-transparent__arrow
+	margin-left: 10px
+
+.btn-arrow
+	animation: none
+	width: 50px
+	height: 2px
+	top: 0
+	&:after, &:before
+		animation: none
+	&:before
+		top: 0
+		right: 4px
+		left: auto
+
+#fp-nav ul li a span, .fp-slidesNav ul li a span
+	height: 12px
+	width: 12px
+	margin: -6px 0 0 -6px
+	border-radius: 100%
+
+#fp-nav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li a.active span, .fp-slidesNav ul li:hover a.active span
+	background-color: $accent
+
+#fp-nav ul li, .fp-slidesNav ul li
+	margin: 25px 7px
+
+.header-site__links
+	position: absolute
+	bottom: 20px
+	right: 20px
+
+.header-site__link
+	color: $accent
+	transition: .25s ease
+	&:hover
+		color: darken($accent, 10%)
+		text-decoration: none
+
+.header-site_icon
+	font-size: 20px
+
+.section
+	min-height: 600px
+	position: relative
+
+.section-video
+	overflow: hidden
+	position: relative
+
+.default-textblock
+	color: #000
+	max-width: 650px
+	padding-left: 150px
+
+.section-white
+	padding: 100px 0
+
+.products-list
+	display: flex
+	flex-direction: column
+	& :nth-child(even)
+		flex-direction: row-reverse
+		.products-list__content
+			padding-right: 150px
+			padding-left: 20px
+			text-align: right
+			.default-textblock__title
+				&:before
+					right: -150px
+					left: auto
+			.default-textblock__text
+				&:before
+					right: -50px
+					left: auto
+
+.products-list__item
+	display: flex
+	margin: 20px 0
+	flex-direction: row
+	color: #000
+	align-items: center
+	flex-wrap: wrap
+
+.products-list__content
+	width: 47%
+	padding-left: 150px
+	padding-right: 20px
+	padding-bottom: 50px
+
+.products-list__img
+	width: 53%
+	box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.26)
+	align-self: flex-start
+
+
+.big-title
+	font-weight: bold
+	text-transform: uppercase
+	font-size: 44px
+	letter-spacing: 2px
+	line-height: 1.2
+	position: relative
+
+.default-textblock__title
+	&:before
+		content: ''
+		display: block
+		height: 2px
+		width: 140px
+		background-color: #000
+		position: absolute
+		top: 24px
+		transform: translate(0, -50%)
+		left: -150px
+
+.default-textblock__text
+	position: relative
+	&:before
+		content: ''
+		display: block
+		height: 5px
+		width: 40px
+		background-color: $accent
+		position: absolute
+		top: 10px
+		left: -50px
+
+.btn-white
+	color: #000
+	text-transform: uppercase
+	font-weight: bold
+	letter-spacing: 2px
+	transition: .25s ease
+	display: flex
+	align-items: center
+	white-space: nowrap
+	&:hover
+		color: #000
+
+.btn-white__arrow
+	background-color: $accent
+	margin-left: 10px
+	&:before, &:after
+		background-color: $accent
+
+.btn-white__text:after
+	content: ''
+	display: block
+	height: 2px
+	width: 40px
+	background-color: $accent
+
+.btn-cnt
+	display: flex
+	align-items: center
+	justify-content: flex-end
+
+.section-num
+	display: flex
+	flex-direction: column
+	align-items: center
+	&:after
+		content: ''
+		display: block
+		height: 50px
+		width: 4px
+		background-color: $accent
+		margin-top: 50px
+
+.section-num__text
+	font-size: 40px
+	font-weight: bold
+	align-self: flex-end
+	letter-spacing: 2px
+	line-height: 1
+	color: #000
+	&:after
+		content: '.'
+		color: $accent
+
+.block-videos__list
+	display: flex
+	flex-wrap: wrap
+	justify-content: center
+
+.block-videos
+	color: #000
+	text-align: center
+	display: flex
+	align-items: center
+	flex-direction: column
+	margin-top: 50px
+
+.block-videos__heading
+	max-width: 650px
+
+.block-videos__title
+	margin-bottom: 50px
+	position: relative
+	&:after
+		content: ''
+		display: block
+		height: 3px
+		width: 50px
+		background-color: $accent
+		position: absolute
+		bottom: -25px
+		left: 50%
+		transform: translate(-50%, 0)
+
+.block-videos__video
+	max-width: 280px
+	margin: 20px
+	display: flex
+	flex-direction: column
+	align-items: center
+	
+.block-videos_preview
+	height: $blockVideosItem
+	width: $blockVideosItem
+	display: flex
+	justify-content: center
+	align-items: center
+	border-radius: 50%
+	overflow: hidden
+	border: 1px solid #E2E2E2
+
+.block-videos__img
+	width: $blockVideosImg
+	height: $blockVideosImg
+	border-radius: 50%
+	overflow: hidden
+
+.block-videos__video-name
+	font-weight: normal
+	margin-top: 30px
+	font-size: 16px
+	position: relative
+	&:before
+		content: ''
+		display: block
+		height: 3px
+		width: 30px
+		background-color: $accent
+		position: absolute
+		left: 50%
+		top: -10px
+		transform: translate(-50%, 0)
+
+.block-videos__play
+	height: 100%
+	width: 100%
+	display: flex
+	align-items: center
+	justify-content: center
+	text-decoration: none
+	transition: .25s ease
+	opacity: .8
+	clip-path: circle(50%)
+	&:hover
+		text-decoration: none
+		opacity: 1
+		background-color: rgba(0, 0, 0, .5)
+		.block-videos__button
+			background-color: darken($accent, 15%)
+
+.block-videos__text
+	margin-bottom: 50px
+
+.block-videos__button
+	height: 60px
+	width: 60px
+	border-radius: 50%
+	background-color: $accent
+	transition: .25s ease
+	position: relative
+
+.block-videos__icon
+	color: #fff
+	font-size: 25px
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-35%, -50%)
+	height: 25px
+	width: 23px
+
+.section-video__play-background
+	position: absolute
+	right: 5%
+	top: 50%
+	transform: translate(0, -50%)
+	height: 95%
+	width: auto
+	opacity: .05
+
+.block-watch
+	height: 100%
+	border: 2px solid rgba(190, 166, 124, 0.5)
+	display: flex
+	align-items: center
+	padding: 40px 10px
+	opacity: 1
+
+.section-video__inner
+	height: 100%
+	padding: 30px 0
+
+.block-watch__textblock
+	color: #ffffff
+
+.block-watch__title
+	color: $accent
+	&:before
+		background-color: #fff
+
+.block-watch__button
+	margin-top: 30px
+
+.about-composition
+	display: flex
+	justify-content: center
+	align-items: center
+
+.about-composition__item
+	width: 50%
+
+.about-composition__img
+	box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.26)
+
+.about-composition__textblock
+	padding-left: 90px
+
+.footer
+	width: 100vw
+	position: relative
+
+.footer__wrapper
+	display: flex
+	justify-content: space-between
+	align-items: center
+	min-height: 70px
+	color: darken(#fff, 50%)
 
 
 @import "media" // Always at the end

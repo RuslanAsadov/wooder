@@ -5,16 +5,240 @@
 
 // ≥1200px
 +media-breakpoint-down(lg)
+	.hrd-decor
+		display: none
+
+	.background-two__one
+		display: none
 
 // ≥992px
 +media-breakpoint-down(md)
+	.top-line__menu
+		display: none 
+
+	.mm-wrapper_opening .mm-menu_offcanvas.mm-menu_opened~.mm-slideout
+		transform: translate3d(440px,0,0)
+		width: 100%
+		height: 100%
+		position: fixed
+
+	.my-hamburger
+		display: block
+
+	.mm-panel
+		max-width: 440px
+
+	.products-list__content
+		width: 60%
+
+	.products-list__img
+		width: 40%
+
+	.products-list__content
+		padding-right: 10px
+		padding-left: 100px
+
+	.default-textblock__title:before
+		left: -100px
+		width: 90px
+
+	.products-list
+		& :nth-child(even)
+			.products-list__content
+				padding-right: 100px
+				padding-left: 10px
+				.default-textblock__title:before
+					right: -100px
+					width: 90px
+
+	.section-num
+		&:after
+			margin-top: 20px
+
+	.big-title
+		font-size: 40px
 
 // ≥768px
 +media-breakpoint-down(sm)
+	.header-composition_inner
+		align-items: center
+
+	.header-composition_title
+		font-size: 60px
+
+	.background-right
+		display: none
+
+	.background-left
+		width: 100%
+
+	.mouse-scroll
+		margin-left: 0
+
+	.header-site:after
+		transform: translate(0, 50%)
+		height: 50px
+
+	.products-list__item
+		flex-direction: column
+		align-items: center
+		justify-content: center
+
+	.products-list__content
+		width: 100%
+
+	.products-list__img
+		width: 100%
+
+	.products-list
+		& :nth-child(even)
+			flex-direction: row
+			.products-list__content
+				padding-left: 100px
+				padding-right: 20px
+				text-align: left
+				.default-textblock__title:before
+						left: -100px
+						right: auto
+				.default-textblock__text
+					&:before
+						left: -50px
+						right: auto
+						
+	.section-num
+		margin-top: 20px
+		&:after
+			margin-top: 10px
+
+	.section-white
+		padding: 60px 0
+
+	.section-video__play-background
+		right: 50%
+		transform: translate(50%, -50%)
+
+	.block-watch__title:before
+		display: none
+
+	.block-watch__text:before
+		display: none
+
+	.block-watch
+		border: none
+		padding: 0 30px
+
+	.block-watch__textblock
+		text-align: center
+		display: flex
+		flex-direction: column
+		align-items: center
+		padding: 0
+		width: 100%
+
+	.block-watch__button
+		flex: 0
+
+	.about-composition
+		flex-direction: column
+		padding: 0 30px
+
+	.about-composition__textblock
+		margin-top: 30px
+
+	.about-composition__item
+		width: 100%
 
 // ≥576px
 +media-breakpoint-down(xs)
 
+	.section-white
+		padding: 50px 0
+
+	.top-line
+		justify-content: flex-end
+
+	.mm-wrapper_opening .mm-menu_offcanvas.mm-menu_opened~.mm-slideout
+		transform: translate3d(75%,0,0)
+
+	.header-composition_title
+		font-size: 45px
+		letter-spacing: 5px
+		line-height: 1
+
+	.btn-transparent
+		padding: 10px 15px
+
+	.top-line_right
+		top: 72px
+
+	#fp-nav.fp-left
+		left: 10px
+
+	.information, .setlang
+		margin: 0 3px
+	
+	.setlang
+		margin-right: 15px
+
+	.my-hamburger
+		left: 5px
+
+	.products-list__content
+		padding: 0
+
+	.products-list__item, .default-textblock
+		padding: 0 30px
+
+	.block-watch__textblock
+		padding: 0
+
+	.big-title
+		font-size: 30px
+
+	.default-textblock__title:before
+		top: 20px
+
+	.products-list
+		& :nth-child(even)
+			.products-list__content
+				padding: 0
+				padding-bottom: 30px
+				.default-textblock__title:before
+					display: none
+				.default-textblock__text:before
+					top: -10px
+					right: auto
+					bottom: auto
+					left: 0
+
+	.products-list__content
+		padding: 0
+		padding-bottom: 30px
+
+	.default-textblock__title
+		&:before
+			display: none
+	.default-textblock__text
+		&:before
+			top: -10px
+			right: auto
+			bottom: auto
+			left: 0
+
+	.block-videos
+		padding: 0 20px
+
+	.block-videos__video
+		margin: 20px 0
+
+	.about-composition__textblock
+		padding: 0
+
+	.footer__wrapper
+		flex-direction: column
+
+	.footer__item
+		margin: 10px 0
 
 /*==========  Mobile First  ==========*/
 
